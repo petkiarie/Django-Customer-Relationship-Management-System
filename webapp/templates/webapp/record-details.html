@@ -1,0 +1,94 @@
+<!-- record_detail.html -->
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            margin: 0 5px;
+        }
+    </style>
+
+    <h3>Record Detail</h3>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>{{ record.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{ record.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>{{ record.creation_date}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ record.email }}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{ record.phone }}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{ record.address }}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>{{ record.city }}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>{{ record.state }}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>{{ record.country }}</td>
+        </tr>
+        
+    </table>
+    <div class="btn-container">
+        <a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard' %}">Back</a>
+        <a class="btn btn-outline-primary btn-sm" href="{% url 'update-record' record.id %}">Edit</a>
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'delete-record' record.id %}">Delete</a>
+    </div>
+    <br><br>
+{% endblock %}
